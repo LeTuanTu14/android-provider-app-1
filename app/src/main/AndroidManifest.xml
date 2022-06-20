@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.letu.app1">
+    
+    <permission android:name="com.letu.app1.WRITE_DATABASE"
+        android:label="Write database"
+        android:protectionLevel="normal"></permission>
+
+    <permission android:name="com.letu.app1.READ_DATABASE"
+        android:label="Read database"
+        android:protectionLevel="normal"></permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App1">
+        <activity
+            android:name=".ProductActivity"
+            android:exported="false" />
+
+        <provider
+            android:name=".MyContentProvider"
+            android:authorities="com.letu.app1"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.letu.app1.READ_DATABASE"
+            android:writePermission="com.letu.app1.WRITE_DATABASE"
+            />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
